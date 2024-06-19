@@ -14,8 +14,9 @@ struct Card {
 struct Stack {
     private var items: [Card] = []
     
-    func peek() -> Card {
-        guard let topElement = items.first else { fatalError("This stack is empty.") }
+    func peek() -> Card? {
+//        guard let topElement = items.first else { fatalError("This stack is empty.") }
+        let topElement = items.first
         return topElement
     }
     
@@ -39,10 +40,9 @@ nameStack.push(Ace)
 nameStack.push(King)
 nameStack.push(Queen)
 
-print(nameStack.pop())
-print(nameStack.pop())
-print(nameStack.pop())
-
-print(nameStack.peek())
+// Pop until nameStack is empty
+while nameStack.peek() != nil {
+    print(nameStack.pop())
+}
 
 print(nameStack)
