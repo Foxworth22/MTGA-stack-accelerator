@@ -8,6 +8,7 @@
 import Foundation
 
 struct Card {
+    var name = ""
     var action = ""
 }
 
@@ -22,7 +23,11 @@ struct Stack {
     
     mutating func pop() -> Card {
         var top = items.removeFirst()
-        print(top.action)
+        print(top.name)
+        if top.action == "push" {
+            var Joker = Card(name: "Joker")
+            self.push(Joker)
+        }
         return top
     }
   
@@ -32,17 +37,18 @@ struct Stack {
 }
 
 var nameStack = Stack()
-var Ace = Card(action: "A")
-var King = Card(action: "K")
-var Queen = Card(action: "Q")
+var Ace = Card(name: "A")
+var King = Card(name: "K", action: "push")
+var Queen = Card(name: "Q", action: "push")
 
 nameStack.push(Ace)
 nameStack.push(King)
 nameStack.push(Queen)
 
+print(nameStack)
+
 // Pop until nameStack is empty
+print()
 while nameStack.peek() != nil {
     print(nameStack.pop())
 }
-
-print(nameStack)
