@@ -7,6 +7,8 @@
 
 import Foundation
 
+// TODO: add feature Program Timing
+
 struct Card {
     var name = ""
     var action = ""
@@ -25,7 +27,8 @@ struct Stack {
         let top = items.removeFirst()
         //print(top.name)
         if top.action == "push" {
-            let Joker = Card(name: "Joker")
+            let Joker = Card(name: "Joker")  
+            // TODO: have Jokers require user input to slow runtime
             self.push(Joker)
         }
         return top
