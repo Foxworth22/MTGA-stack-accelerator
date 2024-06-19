@@ -22,10 +22,10 @@ struct Stack {
     }
     
     mutating func pop() -> Card {
-        var top = items.removeFirst()
-        print(top.name)
+        let top = items.removeFirst()
+        //print(top.name)
         if top.action == "push" {
-            var Joker = Card(name: "Joker")
+            let Joker = Card(name: "Joker")
             self.push(Joker)
         }
         return top
@@ -41,9 +41,11 @@ var Ace = Card(name: "A")
 var King = Card(name: "K", action: "push")
 var Queen = Card(name: "Q", action: "push")
 
-nameStack.push(Ace)
-nameStack.push(King)
-nameStack.push(Queen)
+for _ in 1...4 {
+    nameStack.push(Ace)
+    nameStack.push(King)
+    nameStack.push(Queen)
+}
 
 print(nameStack)
 
